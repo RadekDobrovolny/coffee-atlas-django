@@ -1,0 +1,6 @@
+asgiref==3.5.2; python_version >= "3.8"
+django==4.0.6; python_version >= "3.8"
+sqlparse==0.4.2; python_version >= "3.8" \
+    --hash=sha256:48719e356bb8b42991bdbb1e8b83223757b93789c00910a616a071910ca4a64d \
+    --hash=sha256:0c00730c74263a94e5a9919ade150dfc3b19c574389985446148402998287dae
+tzdata==2022.1; sys_platform == "win32" and python_version >= "3.8"
