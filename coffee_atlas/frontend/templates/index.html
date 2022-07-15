@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        {% if coffees %}
+        <div class="block">
+            <h1 class="title is-2">Coffee Shelf</h1>
+        </div>
+
+        <div class="columns">
+            {% for coffee in coffees %}
+            <div class="column is-one-quarter">
+                <div class="box">
+                    <div class="block">
+                        <figure class="image is-square">
+                            <img src="../{{ coffee.coffee_image }}">
+                        </figure>
+                    </div>
+                    <span class="subtitle">
+                        {{ coffee.roastery.name }} - {{ coffee.country.name }}
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No coffees are on the shelf.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

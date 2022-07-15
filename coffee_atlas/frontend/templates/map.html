@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="map" style="height: 900px;">
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 3);
+
+        L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+        }).addTo(map);
+
+        {% for coffee in coffees %}
+        var marker = L.marker([{{ coffee.place.lat }}, {{ coffee.place.lon }}])
+            .bindPopup("<b>{{ coffee.roastery.name }} - {{ coffee.country.name }}</b> <br><br> Farm: {{ coffee.farmer.name }}<br> Locality: {{ coffee.place.name }}<br> Elevation: {{ coffee.elevation }}")
+            .addTo(map);
+        {% endfor %}
+
+    </script>
+</div>
+{% endblock %}
