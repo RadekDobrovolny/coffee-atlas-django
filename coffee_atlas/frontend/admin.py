@@ -4,6 +4,7 @@ from .models import (
     Coffee,
     Country,
     Farmer,
+    Place,
     Processing,
     Region,
     Roastery,
@@ -13,6 +14,7 @@ from .models import (
 admin.site.register(Coffee)
 admin.site.register(Country)
 admin.site.register(Farmer)
+admin.site.register(Place)
 admin.site.register(Processing)
 admin.site.register(Region)
 admin.site.register(Roastery)
